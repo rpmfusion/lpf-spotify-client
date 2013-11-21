@@ -1,0 +1,13 @@
+The spotify linux client license conditions are explained in [1]. These
+includes:
+   - This package is made by some spotify employees on their spare time.
+     It is deliverad on a as-is basis and without any support.
+   - You may not re-distribute the package
+
+Besides these linux specific restrictions, all use of the spotify streaming
+service is governed by [2]
+
+[1] http://community.spotify.com/t5/Help-Desktop-Linux-Mac-and/What-license-does-the-linux-spotify-client-use/m-p/173356/highlight/true#M8303
+
+[2] http://www.spotify.com/se/legal/end-user-agreement/
+
