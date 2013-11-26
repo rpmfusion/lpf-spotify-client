@@ -4,7 +4,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        0.9.4.183.g644e24e.428
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -26,10 +26,10 @@ Requires:       lpf
 Bootstrap package allowing the lpf system to build the non-redistributable
 spotify-client package.
 
-target-summary:  Spotify music player native client
-target-arch:     i386 i686 x86_64
-target-license:  No modification permitted, non-redistributable
-target-url:      http://www.spotify.com/se/blog/archives/2010/07/12/linux/
+The package is only available on ix86 and x86_64 hosts.
+
+See:  http://www.spotify.com/se/blog/archives/2010/07/12/linux/
+
 
 %prep
 %setup -cT
@@ -50,7 +50,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 lpf scan 2>/dev/null || :
 
 %postun
-lpf scan 2>/dev/null || :
+/usr/share/lpf/scripts/lpf-pkg-postun %{target_pkg} &>/dev/null || :
 
 triggerpostun -- %{target_pkg}
 lpf scan-removal %{target_pkg} &>/dev/null || :
@@ -65,6 +65,10 @@ lpf scan-removal %{target_pkg} &>/dev/null || :
 
 
 %changelog
+* Tue Nov 26 2013 leamas.alec@gmail.com - 0.9.4.183.g644e24e.428-3
+- Updating %%postun
+- Making description to free-format text.
+
 * Tue Nov 26 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-2
 - Adding %triggerpostun
 - Updating description
