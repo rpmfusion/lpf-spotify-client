@@ -4,7 +4,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        0.9.4.183.g644e24e.428
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -50,10 +50,14 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 lpf scan 2>/dev/null || :
 
 %postun
-/usr/share/lpf/scripts/lpf-pkg-postun %{target_pkg} &>/dev/null || :
+if [ "$1" = '0' ]; then
+    /usr/share/lpf/scripts/lpf-pkg-postun %{target_pkg} &>/dev/null || :
+fi
 
-triggerpostun -- %{target_pkg}
-lpf scan-removal %{target_pkg} &>/dev/null || :
+%triggerpostun -- %{target_pkg}
+if [ "$1" = '0' ]; then
+    lpf scan-removal %{target_pkg} &>/dev/null || :
+fi
 
 
 %files
@@ -65,7 +69,10 @@ lpf scan-removal %{target_pkg} &>/dev/null || :
 
 
 %changelog
-* Tue Nov 26 2013 leamas.alec@gmail.com - 0.9.4.183.g644e24e.428-3
+* Tue Nov 26 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-4
+- Updating %%triggerun and %%postun.
+
+* Tue Nov 26 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-3
 - Updating %%postun
 - Making description to free-format text.
 
