@@ -13,7 +13,7 @@
 
 Name:           spotify-client
 Version:        0.9.4.183.g644e24e.428
-Release:        4%{?dist}
+Release:        7%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -37,7 +37,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  python2-devel
 BuildRequires:  redhat-lsb-core
 
-Requires:       zenity
+Requires:       dbus-x11
 Requires:       hicolor-icon-theme
                 # Symlinked, not picked up by autorequire (all 5).
 Requires:       libnspr4.so%{?req_64}
@@ -45,6 +45,7 @@ Requires:       libplc4.so%{?req_64}
 Requires:       libsmime3.so%{?req_64}
 Requires:       libnssutil3.so%{?req_64}
 Requires:       libnss3.so%{?req_64}
+Requires:       zenity
 
 Provides:       spotify = %{version}-%{release}
 # https://lists.rpmfusion.org/pipermail/rpmfusion-developers/2012-November/013934.html
@@ -110,6 +111,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sun Jan 12 2014 Alec Leamas <leamas.alec@gmail.com> - 0.9.4.183.g644e24e.428-7
+- Added missing Requires: dbus-x11
+
 * Sat Oct 12 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-4
 - Updating to latest spotify-make.
 - Still more fixes for directory layout.
