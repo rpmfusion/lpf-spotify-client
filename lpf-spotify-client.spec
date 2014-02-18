@@ -47,7 +47,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %check
-%lpf_check spotify-client.spec
+%lpf_check %{SOURCE0}
 
 
 %post
