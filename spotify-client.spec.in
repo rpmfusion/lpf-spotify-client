@@ -13,7 +13,7 @@
 
 Name:           spotify-client
 Version:        0.9.4.183.g644e24e.428
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -38,6 +38,7 @@ BuildRequires:  python2-devel
 BuildRequires:  redhat-lsb-core
 
 Requires:       dbus-x11
+Requires:       ffmpeg-compat
 Requires:       hicolor-icon-theme
                 # Symlinked, not picked up by autorequire (all 5).
 Requires:       libnspr4.so%{?req_64}
@@ -45,6 +46,7 @@ Requires:       libplc4.so%{?req_64}
 Requires:       libsmime3.so%{?req_64}
 Requires:       libnssutil3.so%{?req_64}
 Requires:       libnss3.so%{?req_64}
+Requires:       python2
 Requires:       zenity
 
 Provides:       spotify = %{version}-%{release}
@@ -111,6 +113,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Feb 18 2014 Alec Leamas <leamas.alec@gmail.com> - 0.9.4.183.g644e24e.428-8
+- Adding missing R:ffmpeg-compat and R:python2.
+
 * Sun Jan 12 2014 Alec Leamas <leamas.alec@gmail.com> - 0.9.4.183.g644e24e.428-7
 - Added missing Requires: dbus-x11
 

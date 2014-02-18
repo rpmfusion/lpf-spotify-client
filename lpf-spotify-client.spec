@@ -4,7 +4,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        0.9.4.183.g644e24e.428
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -69,10 +69,13 @@ fi
 
 
 %changelog
-* Sun Jan 12 2014 leamas.alec@gmail.com - 0.9.4.183.g644e24e.428-7
+* Tue Feb 18 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-8
+- Adding missing R: ffmpeg-compat and R:python2 to target package.
+
+* Sun Jan 12 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-7
 - Adding missing Requires: dbus-x11 to target package.
 
-* Fri Dec 27 2013 leamas@nowhere.net - 0.9.4.183.g644e24e.428-6
+* Fri Dec 27 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-6
 - Rebuild after F20 branching
 
 * Wed Nov 27 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-5
