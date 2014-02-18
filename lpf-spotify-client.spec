@@ -19,8 +19,8 @@ Source2:        LICENSE
 Source3:        README
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf
-Requires:       lpf
+BuildRequires:  lpf >= 0.1
+Requires:       lpf >= 0.1
 
 %description
 Bootstrap package allowing the lpf system to build the non-redistributable
@@ -46,18 +46,17 @@ cp %{SOURCE3} README
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
+%check
+%lpf_check spotify-client.spec.in
+
+
 %post
-lpf scan 2>/dev/null || :
+%lpf_post
 
 %postun
-if [ "$1" = '0' ]; then
-    /usr/share/lpf/scripts/lpf-pkg-postun %{target_pkg} &>/dev/null || :
-fi
+%lpf_postun
 
-%triggerpostun -- %{target_pkg}
-if [ "$2" = '0' ]; then
-    lpf scan-removal %{target_pkg} &>/dev/null || :
-fi
+%lpf_triggerpostun
 
 
 %files
@@ -65,11 +64,12 @@ fi
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/lpf/packages/%{target_pkg}
 %attr(775,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}
-%attr(664,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}/state
+#%attr(664,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}/state
 
 
 %changelog
 * Tue Feb 18 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-8
+- Updating spec scriptlets, use new macros.
 - Adding missing R: ffmpeg-compat and R:python2 to target package.
 
 * Sun Jan 12 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-7
