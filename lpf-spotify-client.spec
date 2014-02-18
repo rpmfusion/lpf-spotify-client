@@ -64,17 +64,18 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/lpf/packages/%{target_pkg}
 %attr(775,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}
-%attr(664,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}/state
+#%attr(664,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}/state
 
 
 %changelog
-* Thu Jan 30 2014 leamas.alec@gmail.com - 0.9.4.183.g644e24e.428-8
-- Using new scriptlet macros, add %%check.
+* Tue Feb 18 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-8
+- Updating spec scriptlets, use new macros.
+- Adding missing R: ffmpeg-compat and R:python2 to target package.
 
-* Sun Jan 12 2014 leamas.alec@gmail.com - 0.9.4.183.g644e24e.428-7
+* Sun Jan 12 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-7
 - Adding missing Requires: dbus-x11 to target package.
 
-* Fri Dec 27 2013 leamas@nowhere.net - 0.9.4.183.g644e24e.428-6
+* Fri Dec 27 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-6
 - Rebuild after F20 branching
 
 * Wed Nov 27 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-5
