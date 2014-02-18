@@ -47,7 +47,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %check
-%lpf_check spotify-client.spec.in
+%lpf_check %{SOURCE0}
 
 
 %post
@@ -71,6 +71,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 * Tue Feb 18 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-8
 - Updating spec scriptlets, use new macros.
 - Adding missing R: ffmpeg-compat and R:python2 to target package.
+- Update bogus README copied from skype.
 
 * Sun Jan 12 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-7
 - Adding missing Requires: dbus-x11 to target package.
