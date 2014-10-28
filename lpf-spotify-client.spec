@@ -1,10 +1,10 @@
-# %%global will not work here, lazy evaluation needed.
+# %%bal will not work here, lazy evaluation needed.
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        0.9.4.183.g644e24e.428
-Release:        8%{?dist}
+Version:        0.9.11.27.g2b1a638.81
+Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -58,16 +58,19 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %lpf_triggerpostun
 
-
+.
 %files
 %doc LICENSE README
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/lpf/packages/%{target_pkg}
 %attr(775,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}
-#%attr(664,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}/state
 
 
 %changelog
+* Tue Oct 28 2014 Alec Leamas <leamas@nowhere.net> - 0.9.11.27.g2b1a638.81-1
+- Rebuilt from current amd64 version + new bundled libs in spotify-make
+- Note: the actually installed version for i386 hosts is still 0.9.4.183
+
 * Tue Feb 18 2014 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-8
 - Updating spec scriptlets, use new macros.
 - Adding missing R: ffmpeg-compat and R:python2 to target package.
@@ -90,7 +93,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 - Making description to free-format text.
 
 * Tue Nov 26 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-2
-- Adding %triggerpostun
+- Adding %%triggerpostun
 - Updating description
 
 * Thu Oct 24 2013 Alec Leamas <leamas@nowhere.net> - 0.9.4.183.g644e24e.428-1
