@@ -1,5 +1,5 @@
 #These refer to the installer, not the main package:
-%global commit      cb564f2c83b93055ad94564f8df04f74fe88af9a
+%global commit      d972b076a660f805a75292eda55185433991c096
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %global repo        http://repository.spotify.com/pool/non-free/s/spotify
@@ -12,8 +12,8 @@
 
 
 Name:           spotify-client
-Version:        0.9.4.183.g644e24e.428
-Release:        8%{?dist}
+Version:        0.9.11.27.g2b1a638.81
+Release:        1%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -22,9 +22,12 @@ License:        No modification permitted, non-redistributable
 URL:            http://www.spotify.com/se/blog/archives/2010/07/12/linux/
 Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
+
 Source0:        %{github_repo}/spotify-make-%{version}-%{shortcommit}.tar.gz
-Source1:        %{repo}/spotify-client_%{version}-1_amd64.deb
-Source2:        %{repo}/spotify-client_%{version}-1_i386.deb
+#Source1:        %{repo}/spotify-client_%{version}-1_amd64.deb
+Source1:        %{repo}/spotify-client_0.9.11.27.g2b1a638.81-1_amd64.deb
+#Source2:        %{repo}/spotify-client_%{version}-1_i386.deb
+Source2:        %{repo}/spotify-client_0.9.4.183.g644e24e.428-1_i386.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
@@ -68,10 +71,13 @@ hard drive.
 
 # Filter away the deps om bundled libs and those substituted
 # by symlinks and explicit Requires:.
-%global __requires_exclude                     ^libssl.so.0.9.8
+%global __requires_exclude                     ^libssl.so.1.0.0
+%global __requires_exclude %__requires_exclude|^libcrypto.so.1.0.0
+%global __requires_exclude %__requires_exclude|^libssl.so.0.9.8
 %global __requires_exclude %__requires_exclude|^libcrypto.so.0.9.8
 %global __requires_exclude %__requires_exclude|^libcef.so
 %global __requires_exclude %__requires_exclude|^libudev.so.0
+%global __requires_exclude %__requires_exclude|^libgrypt.so.11
 %global __requires_exclude %__requires_exclude|[.]so[.][0-2][a-f]
 
 
@@ -113,6 +119,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Oct 28 2014 leamas.alec@gmail.com - 0.9.11.27.g2b1a638.81-1
+- Rebuilt for latest X86_64 upstream + bundled libgrypt.so.11.
+
 * Tue Feb 18 2014 Alec Leamas <leamas.alec@gmail.com> - 0.9.4.183.g644e24e.428-8
 - Adding missing R:ffmpeg-compat and R:python2.
 
