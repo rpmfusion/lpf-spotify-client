@@ -13,7 +13,7 @@
 
 Name:           spotify-client
 Version:        0.9.11.27.g2b1a638.81
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -77,7 +77,7 @@ hard drive.
 %global __requires_exclude %__requires_exclude|^libcrypto.so.0.9.8
 %global __requires_exclude %__requires_exclude|^libcef.so
 %global __requires_exclude %__requires_exclude|^libudev.so.0
-%global __requires_exclude %__requires_exclude|^libgrypt.so.11
+%global __requires_exclude %__requires_exclude|^libcrypt.so.11
 %global __requires_exclude %__requires_exclude|[.]so[.][0-2][a-f]
 
 
@@ -119,6 +119,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Nov 21 2014 leamas.alec@gmail.com - 0.9.11.27.g2b1a638.81-2
+- Fix typo (#3408)
+
 * Tue Oct 28 2014 leamas.alec@gmail.com - 0.9.11.27.g2b1a638.81-1
 - Rebuilt for latest X86_64 upstream + bundled libgrypt.so.11.
 

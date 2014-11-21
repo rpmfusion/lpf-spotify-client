@@ -4,7 +4,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        0.9.11.27.g2b1a638.81
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -67,6 +67,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Fri Nov 21 2014 Alec Leamas <leamas.alec@gmail.com> - 0.9.11.27.g2b1a638.81-2
+- Fix typo (3408)
+
 * Tue Oct 28 2014 Alec Leamas <leamas@nowhere.net> - 0.9.11.27.g2b1a638.81-1
 - Rebuilt from current amd64 version + new bundled libs in spotify-make
 - Note: the actually installed version for i386 hosts is still 0.9.4.183
