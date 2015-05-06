@@ -3,8 +3,8 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        0.9.11.27.g2b1a638.81
-Release:        2%{?dist}
+Version:        0.9.17.1.g9b85d43.7
+Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -67,6 +67,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Wed May 06 2015 Sérgio Basto <sergio@serjux.com> - 0.9.17.1.g9b85d43.7-1
+- Update to 0.9.17.1.g9b85d43.7 and fix rfbz #3408
+
 * Fri Nov 21 2014 Alec Leamas <leamas.alec@gmail.com> - 0.9.11.27.g2b1a638.81-2
 - Fix typo (3408)
 
