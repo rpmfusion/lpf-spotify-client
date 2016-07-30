@@ -1,9 +1,17 @@
 # %%bal will not work here, lazy evaluation needed.
+
+#devel branch
+%global github_repo https://github.com/leamas/spotify-make/archive/%{commit}
+%global github_repo https://github.com/robxu9/spotify-make/archive/%{commit}
+%global commit      8597389ba7bf755418e8746b9c20af51e4be2bc0
+%global commit      a0048ec7c5c6acf4ca584348684150b91328227d
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        0.9.17.1.g9b85d43.7
+Version:        1.0.32.96.g3c8a06e6
 Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
@@ -17,6 +25,7 @@ Source0:        spotify-client.spec.in
 Source1:        eula.txt
 Source2:        LICENSE
 Source3:        README
+Source4:        %{github_repo}/spotify-make-%{shortcommit}.tar.gz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  lpf >= 0.1
@@ -42,7 +51,7 @@ cp %{SOURCE3} README
 
 %install
 # lpf-setup-pkg [eula] <topdir> <specfile> [sources...]
-/usr/share/lpf/scripts/lpf-setup-pkg %{SOURCE1} %{buildroot} %{SOURCE0}
+/usr/share/lpf/scripts/lpf-setup-pkg %{SOURCE1} %{buildroot} %{SOURCE0} %{SOURCE4}
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
@@ -67,6 +76,15 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Fri Jul 29 2016 Sérgio Basto <sergio@serjux.com> - 1.0.32.96.g3c8a06e6-1
+- Update Spotify to 1.0.32.96.g3c8a06e6-37 for amd64, -3 for i386
+- Move spotify-make to main package, no need dowload it every time
+- Use branch devel of spotify-make, supports and install Spotify 1.0.32 correctly
+- Update scriptlets https://fedoraproject.org/wiki/Packaging:Scriptlets#Icon_Cache
+- Update __requires_exclude with libcurl.so and remove which aren't in use
+  anymore
+- Use Robxu9 commit.
+
 * Wed May 06 2015 Sérgio Basto <sergio@serjux.com> - 0.9.17.1.g9b85d43.7-1
 - Update to 0.9.17.1.g9b85d43.7 and fix rfbz #3408
 
