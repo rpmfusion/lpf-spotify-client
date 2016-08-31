@@ -85,7 +85,7 @@ hard drive.
 
 
 %install
-make install DESTDIR=%{buildroot}
+%make_install
 
 
 %post

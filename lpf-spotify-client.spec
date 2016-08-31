@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.0.36.120.g536a862f
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -68,13 +68,17 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %lpf_triggerpostun
 
 %files
-%doc LICENSE README
+%doc README
+%license LICENSE
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/lpf/packages/%{target_pkg}
 %attr(775,pkg-build,pkg-build) /var/lib/lpf/packages/%{target_pkg}
 
 
 %changelog
+* Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 1.0.36.120.g536a862f-2
+- Add license tag
+
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 1.0.36.120.g536a862f-1
 - Update to 1.0.36.120.g536a862f
 - Remove require ffmpeg-compat
