@@ -11,7 +11,7 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.0.32.96.g3c8a06e6
+Version:        1.0.36.120.g536a862f
 Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
@@ -67,7 +67,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %lpf_triggerpostun
 
-.
 %files
 %doc LICENSE README
 %{_datadir}/applications/%{name}.desktop
@@ -76,6 +75,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 1.0.36.120.g536a862f-1
+- Update to 1.0.36.120.g536a862f
+- Remove require ffmpeg-compat
+- Fix warning: %triggerpostun .: usage: . filename [arguments]
+
 * Fri Jul 29 2016 Sérgio Basto <sergio@serjux.com> - 1.0.32.96.g3c8a06e6-1
 - Update Spotify to 1.0.32.96.g3c8a06e6-37 for amd64, -3 for i386
 - Move spotify-make to main package, no need dowload it every time

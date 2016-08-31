@@ -7,26 +7,24 @@
 # We cannot strip this binary (licensing restrictions).
 %global debug_package %{nil}
 %global __os_install_post \
-                    %(echo '%{__os_install_post}' | sed -e '/brp-strip/d')
+    %(echo '%{__os_install_post}' | sed -e '/brp-strip/d')
 
 
 Name:           spotify-client
-Version:        1.0.32.96.g3c8a06e6
+Version:        1.0.36.120.g536a862f
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
 # $board/What-license-does-the-linux-spotify-client-use/td-p/173356
 License:        No modification permitted, non-redistributable
-URL:            http://www.spotify.com/se/blog/archives/2010/07/12/linux/
+URL:            https://www.spotify.com/se/download/linux/
 Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
-#Source1:        %{repo}/spotify-client_%{version}-1_amd64.deb
-Source1:        %{repo}/spotify-client_1.0.32.96.g3c8a06e6-37_amd64.deb
-#Source2:        %{repo}/spotify-client_%{version}-1_i386.deb
-Source2:        %{repo}/spotify-client_1.0.32.96.g3c8a06e6-3_i386.deb
+Source1:        %{repo}/spotify-client_%{version}-20_amd64.deb
+Source2:        %{repo}/spotify-client_%{version}-2_i386.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
@@ -40,7 +38,6 @@ BuildRequires:  python2-devel
 BuildRequires:  redhat-lsb-core
 
 Requires:       dbus-x11
-Requires:       ffmpeg-compat
 Requires:       hicolor-icon-theme
                 # Symlinked, not picked up by autorequire (all 5).
 Requires:       libnspr4.so%{?req_64}
@@ -120,6 +117,7 @@ fi
 %changelog
 * Fri Jul 29 2016 Sérgio Basto <sergio@serjux.com> - 1.0.32.96.g3c8a06e6-1
 - Update Spotify to 1.0.32.96.g3c8a06e6-37 for amd64, -3 for i386
+- Remove require ffmpeg-compat
 
 * Wed May 06 2015 Sérgio Basto <sergio@serjux.com> - 0.9.17.1.g9b85d43.7-1
 - Update to 0.9.17.1.g9b85d43.7 and fix rfbz #3408
