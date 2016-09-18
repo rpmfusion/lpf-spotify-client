@@ -11,12 +11,12 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.0.36.120.g536a862f
-Release:        2%{?dist}
+Version:        1.0.37.152.gc83ea995
+Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
-URL:            http://leamas.fedorapeople.org/lpf-spotify-client/
+URL:            https://github.com/leamas/spotify-make
 Group:          Development/Tools
 BuildArch:      noarch
                 # There's no source, only a spec building the target package.
@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Sep 18 2016 Sérgio Basto <sergio@serjux.com> - 1.0.37.152.gc83ea995-1
+- Update to 1.0.37.152.gc83ea995_42
+
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 1.0.36.120.g536a862f-2
 - Add license tag
 

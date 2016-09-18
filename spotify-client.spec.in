@@ -11,8 +11,8 @@
 
 
 Name:           spotify-client
-Version:        1.0.36.120.g536a862f
-Release:        2%{?dist}
+Version:        1.0.37.152.gc83ea995
+Release:        1%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -23,8 +23,8 @@ Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
-Source1:        %{repo}/spotify-client_%{version}-20_amd64.deb
-Source2:        %{repo}/spotify-client_%{version}-2_i386.deb
+Source1:        %{repo}/spotify-client_%{version}-42_amd64.deb
+Source2:        %{repo}/spotify-client_%{version}-42_i386.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
@@ -115,6 +115,9 @@ fi
 
 
 %changelog
+* Sun Sep 18 2016 Sérgio Basto <sergio@serjux.com> - 1.0.37.152.gc83ea995-1
+- Update to 1.0.37.152.gc83ea995_42
+
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 1.0.36.120.g536a862f-2
 - Add license tag
 
