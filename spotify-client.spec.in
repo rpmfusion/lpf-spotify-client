@@ -2,7 +2,7 @@
 %global commit      a0048ec7c5c6acf4ca584348684150b91328227d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
-%global repo        http://repository.spotify.com/pool/non-free/s/spotify-client/
+%global repo        http://repository.spotify.com/pool/non-free/s/spotify-client
 
 # We cannot strip this binary (licensing restrictions).
 %global debug_package %{nil}
@@ -11,7 +11,7 @@
 
 
 Name:           spotify-client
-Version:        1.0.37.152.gc83ea995
+Version:        1.0.42.151.g19de0aa6
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
@@ -23,8 +23,8 @@ Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
-Source1:        %{repo}/spotify-client_%{version}-42_amd64.deb
-Source2:        %{repo}/spotify-client_%{version}-42_i386.deb
+Source1:        %{repo}/spotify-client_%{version}-74_amd64.deb
+Source2:        %{repo}/spotify-client_%{version}-27_i386.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
@@ -73,6 +73,7 @@ hard drive.
 #global __requires_exclude %__requires_exclude|^libudev.so.0
 #global __requires_exclude %__requires_exclude|^libgcrypt.so.11
 %global __requires_exclude %__requires_exclude|^libcurl.so.4
+%global __requires_exclude %__requires_exclude|^libwidevinecdm.so.*
 #global __requires_exclude %__requires_exclude|[.]so[.][0-2][a-f]
 
 
@@ -115,6 +116,9 @@ fi
 
 
 %changelog
+* Thu Nov 10 2016 Sérgio Basto <sergio@serjux.com> - 1.0.42.151.g19de0aa6-1
+- Update to 1.0.42.151.g19de0aa6
+
 * Sun Sep 18 2016 Sérgio Basto <sergio@serjux.com> - 1.0.37.152.gc83ea995-1
 - Update to 1.0.37.152.gc83ea995_42
 
