@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Wed Jan 4 2017 Łukasz Wieczorek <wieczorek1990@gmail.com> - 1.0.45-2
+- Update to 1.0.45-2
+
 * Tue Dec 20 2016 Sérgio Basto <sergio@serjux.com> - 1.0.45-1
 - Update to 1.0.45
 
