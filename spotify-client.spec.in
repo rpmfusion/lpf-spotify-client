@@ -11,7 +11,7 @@
 
 
 Name:           spotify-client
-Version:        1.0.45
+Version:        1.0.47
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
@@ -23,8 +23,8 @@ Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
-Source1:        %{repo}/spotify-client_%{version}.182.gbbd5909f-72_amd64.deb
-Source2:        %{repo}/spotify-client_%{version}.182.gbbd5909f-21_i386.deb
+Source1:        %{repo}/spotify-client_%{version}.13.gd8e05b1f-16_i386.deb
+Source2:        %{repo}/spotify-client_%{version}.13.gd8e05b1f-47_amd64.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
@@ -116,6 +116,9 @@ fi
 
 
 %changelog
+* Tue Jan 17 2017 Pedro Albuquerque Santos <petersaints@gmail.com> - 1.0.47-1
+- Update to 1.0.47
+
 * Tue Dec 20 2016 Sérgio Basto <sergio@serjux.com> - 1.0.45-1
 - Update to 1.0.45
 
