@@ -23,8 +23,8 @@ Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
-Source1:        %{repo}/spotify-client_%{version}.125.g72ee7853-83_amd64.deb
-Source2:        %{repo}/spotify-client_%{version}.125.g72ee7853-21_i386.deb
+Source1:        %{repo}/spotify-client_%{version}.125.g72ee7853-111_amd64.deb
+Source2:        %{repo}/spotify-client_%{version}.125.g72ee7853-22_i386.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
