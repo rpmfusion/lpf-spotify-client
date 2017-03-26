@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.0.49
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -76,6 +76,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Mar 26 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.0.49-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Mon Mar 13 2017 Pedro Albuquerque Santos <petersaints@gmail.com.com> - 1.0.49-2
 - Update to spotify-client_1.0.49.125.g72ee7853-111_amd64.deb and spotify-client_1.0.49.125.g72ee7853-22_i386.deb
 
