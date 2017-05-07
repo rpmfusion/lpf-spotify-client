@@ -6,7 +6,7 @@ import requests
 import re
 import os
 import subprocess
-requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
+
 a = requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
 #print (a.text)
 
@@ -16,7 +16,8 @@ res = str_mx.findall(a.text)
 res2 = str_mx2.findall(a.text)
 deb32 = res[-1]
 deb64 = res2[-1]
-print (deb32,deb64)
+print ("deb32 = %s" % deb32)
+print ("deb64 = %s" % deb64)
 res2 = str_mx.findall(a.text)
 
 regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3})([.].*)')
@@ -33,8 +34,6 @@ spec3 = re.sub(str_mx4, r'\1%s' % minor64, spec)
 str_mx5 = re.compile('(Source2:.*?)[.].*')
 spec4 = re.sub(str_mx5, r'\1%s' % minor32, spec3)
 
-open('spotify-client.spec.in', 'w').write(spec4)
-
 def runme(cmd, env, cwd='.'):
     """Simple function to run a command and return 0 for success, 1 for
        failure.  cmd is a list of the command and arguments, action is a
@@ -48,11 +47,22 @@ def runme(cmd, env, cwd='.'):
         return 1
     return 0
 
-enviro = os.environ
-pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:4]), 'spotify-client.spec.in']
-if runme(pkgcmd, enviro):
-    print('error running runme')
-pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:4]), 'lpf-spotify-client.spec']
-if runme(pkgcmd, enviro):
-    print('error running runme')
+if spec != spec3:
+    open('spotify-client.spec.in', 'w').write(spec4)
+    enviro = os.environ
+    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:4]), 'spotify-client.spec.in']
+    #pkgcmd = ['rpmdev-bumpspec -n %s -c "Update to %s%s" spotify-client.spec.in' % (version64, version64, minor64[:4])]
+    if runme(pkgcmd, enviro):
+        print('error running runme')
+    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:4]), 'lpf-spotify-client.spec']
+    if runme(pkgcmd, enviro):
+        print('error running runme')
 
+#rfpkg clog && rfpkg commit -F clog && /bin/rm clog && git show
+#rfpkg push && rfpkg build --nowait
+#git checkout f26 && git merge master && git push && rfpkg build --nowait; git checkout master
+#git checkout f25 && git merge master && git push && rfpkg build --nowait; git checkout master
+#git checkout f24 && git merge master && git push && rfpkg build --nowait; git checkout master
+
+else:
+    print("Already updated !")
