@@ -11,8 +11,8 @@
 
 
 Name:           spotify-client
-Version:        1.0.53
-Release:        1%{?dist}
+Version:        1.0.53.758
+Release:        2%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -23,8 +23,8 @@ Group:          Applications/Multimedia
 ExclusiveArch:  i386 i686 x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
-Source1:        %{repo}/spotify-client_%{version}.758.gde3fc4b2-33_amd64.deb
-Source2:        %{repo}/spotify-client_%{version}.758.gde3fc4b2-34_i386.deb
+Source1:        %{repo}/spotify-client_%{version}.gde3fc4b2-33_amd64.deb
+Source2:        %{repo}/spotify-client_%{version}.gde3fc4b2-34_i386.deb
 
 %ifarch x86_64
 %global   spotify_pkg   %{SOURCE1}
@@ -116,6 +116,9 @@ fi
 
 
 %changelog
+* Mon May 15 2017 Sérgio Basto <sergio@serjux.com> - 1.0.53.758-2
+- Improve version numbers
+
 * Sat Apr 15 2017 Sérgio Basto <sergio@serjux.com> - 1.0.53-1
 - Update to 1.0.53.758
 

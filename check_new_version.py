@@ -20,7 +20,7 @@ print ("deb32 = %s" % deb32)
 print ("deb64 = %s" % deb64)
 res2 = str_mx.findall(a.text)
 
-regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3})([.].*)')
+regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,3})([.].*)')
 (version32, minor32) = regexp.findall(deb32)[0]
 (version64, minor64) = regexp.findall(deb64)[0]
 print (version32, minor32, version64, minor64)
