@@ -50,11 +50,11 @@ def runme(cmd, env, cwd='.'):
 if spec != spec3:
     open('spotify-client.spec.in', 'w').write(spec4)
     enviro = os.environ
-    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:4]), 'spotify-client.spec.in']
+    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:10]), 'spotify-client.spec.in']
     #pkgcmd = ['rpmdev-bumpspec -n %s -c "Update to %s%s" spotify-client.spec.in' % (version64, version64, minor64[:4])]
     if runme(pkgcmd, enviro):
         print('error running runme')
-    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:4]), 'lpf-spotify-client.spec']
+    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:10]), 'lpf-spotify-client.spec']
     if runme(pkgcmd, enviro):
         print('error running runme')
 
