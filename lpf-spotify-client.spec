@@ -12,12 +12,13 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.0.55.487
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
 URL:            https://github.com/leamas/spotify-make
 Group:          Development/Tools
+ExclusiveArch:  i686 x86_64
 BuildArch:      noarch
                 # There's no source, only a spec building the target package.
 Source0:        spotify-client.spec.in
@@ -76,6 +77,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Jun 11 2017 Sérgio Basto <sergio@serjux.com> - 1.0.55.487-2
+- ExclusiveArch:  i686 x86_64 , /usr/lib64/spotify-client/spotify only provided
+  for i386 and x86_64
+
 * Wed May 24 2017 Sérgio Basto <sergio@serjux.com> - 1.0.55.487-1
 - Update to 1.0.55.487.g256699aa
 
