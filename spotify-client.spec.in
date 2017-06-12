@@ -12,7 +12,7 @@
 
 Name:           spotify-client
 Version:        1.0.55.487
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux

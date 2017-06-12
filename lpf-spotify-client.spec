@@ -19,7 +19,7 @@ License:        MIT
 URL:            https://github.com/leamas/spotify-make
 Group:          Development/Tools
 ExclusiveArch:  i686 x86_64
-#BuildArch:      noarch
+BuildArch:      noarch
                 # There's no source, only a spec building the target package.
 Source0:        spotify-client.spec.in
 # http://community.spotify.com/t5/Help-Desktop-Linux-Mac-and/What-license-does-the-linux-spotify-client-use/td-p/173356/highlight/true/page/2
