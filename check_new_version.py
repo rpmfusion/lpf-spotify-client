@@ -41,7 +41,7 @@ def runme(cmd, env, cwd='.'):
        being operated on, env is the environment dict, and cwd is where
        the script should be executed from."""
     try:
-        subprocess.check_call(cmd, env=env, cwd=cwd)
+        subprocess.check_call(cmd, env=env, cwd=cwd) #, stderr=None
     except subprocess.CalledProcessError as e:
         sys.stderr.write('%s failed: %s\n' % (cmd, e))
         return 1
@@ -54,7 +54,7 @@ if spec != spec3:
     #pkgcmd = ['rpmdev-bumpspec -n %s -c "Update to %s%s" spotify-client.spec.in' % (version64, version64, minor64[:4])]
     if runme(pkgcmd, enviro):
         print('error running runme')
-    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:10]), 'lpf-spotify-client.spec']
+    pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:10]), 'lpf-spotify-client.spec'] # 2>/dev/null
     if runme(pkgcmd, enviro):
         print('error running runme')
 

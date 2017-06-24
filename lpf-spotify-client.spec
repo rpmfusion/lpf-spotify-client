@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.0.57.474
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -79,6 +79,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Jun 24 2017 Sérgio Basto <sergio@serjux.com> - 1.0.57.474-2
+- do src.rpm just to work in the same arch that was build and just download one
+  source instead 2
+
 * Sat Jun 24 2017 Sérgio Basto <sergio@serjux.com> - 1.0.57.474-1
 - Update to 1.0.57.474.gca9c9538
 
