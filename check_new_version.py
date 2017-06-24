@@ -58,11 +58,11 @@ if spec != spec3:
     if runme(pkgcmd, enviro):
         print('error running runme')
 
-#rfpkg clog && rfpkg commit -F clog && /bin/rm clog && git show
-#rfpkg push && rfpkg build --nowait
-#git checkout f26 && git merge master && git push && rfpkg build --nowait; git checkout master
-#git checkout f25 && git merge master && git push && rfpkg build --nowait; git checkout master
-#git checkout f24 && git merge master && git push && rfpkg build --nowait; git checkout master
+    print('rfpkg clog && rfpkg commit -F clog && /bin/rm clog && git show')
+    print('rfpkg push && rfpkg build --nowait')
+    print('git checkout f26 && git merge master && git push && rfpkg build --nowait; git checkout master')
+    print('git checkout f25 && git merge master && git push && rfpkg build --nowait; git checkout master')
+    print('git checkout f24 && git merge master && git push && rfpkg build --nowait; git checkout master')
 
 else:
     print("Already updated !")
