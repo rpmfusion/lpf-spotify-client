@@ -11,8 +11,8 @@
 
 
 Name:           spotify-client
-Version:        1.0.57.474
-Release:        2%{?dist}
+Version:        1.0.59.395
+Release:        1%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -25,11 +25,11 @@ ExclusiveArch:  i386 i686 x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.gca9c9538-30_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.ge6ca9946-18_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
-Source2:        %{repo}/spotify-client_%{version}.gca9c9538-30_i386.deb
+Source2:        %{repo}/spotify-client_%{version}.ge6ca9946-18_i386.deb
 %global   spotify_pkg   %{SOURCE2}
 %endif
 
@@ -116,6 +116,9 @@ fi
 
 
 %changelog
+* Fri Jul 21 2017 Sérgio Basto <sergio@serjux.com> - 1.0.59.395-1
+- Update to 1.0.59.395.ge6ca9946
+
 * Sat Jun 24 2017 Sérgio Basto <sergio@serjux.com> - 1.0.57.474-2
 - do src.rpm just to work in the same arch that was build and just download one
   source instead 2
