@@ -7,18 +7,18 @@ import re
 import os
 import subprocess
 
-a = requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
-#print (a.text)
+html = requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
+#print (html.text)
 
 str_mx = re.compile('href="(spotify-client.*?i386.deb)"')
 str_mx2 = re.compile('href="(spotify-client.*?amd64.deb)"')
-res = str_mx.findall(a.text)
-res2 = str_mx2.findall(a.text)
+res = str_mx.findall(html.text)
+res2 = str_mx2.findall(html.text)
 deb32 = res[-1]
 deb64 = res2[-1]
 print ("deb32 = %s" % deb32)
 print ("deb64 = %s" % deb64)
-res2 = str_mx.findall(a.text)
+res2 = str_mx.findall(html.text)
 
 regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,3})([.].*)')
 (version32, minor32) = regexp.findall(deb32)[0]
@@ -60,9 +60,9 @@ if spec != spec3:
 
     print('rfpkg clog && rfpkg commit -F clog && /bin/rm clog && git show')
     print('rfpkg push && rfpkg build --nowait')
+    print('git checkout f27 && git merge master && git push && rfpkg build --nowait; git checkout master')
     print('git checkout f26 && git merge master && git push && rfpkg build --nowait; git checkout master')
     print('git checkout f25 && git merge master && git push && rfpkg build --nowait; git checkout master')
-    print('git checkout f24 && git merge master && git push && rfpkg build --nowait; git checkout master')
 
 else:
     print("Already updated !")
