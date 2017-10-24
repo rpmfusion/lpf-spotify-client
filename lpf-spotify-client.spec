@@ -11,8 +11,8 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.0.59.395
-Release:        2%{?dist}
+Version:        1.0.64.407
+Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Tue Oct 24 2017 Sérgio Basto <sergio@serjux.com> - 1.0.64.407-1
+- Update to 1.0.64.407.g9bd02c2d
+
 * Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.0.59.395-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
