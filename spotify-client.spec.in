@@ -1,4 +1,6 @@
 #These refer to the installer, not the main package:
+# Using https://github.com/robxu9/spotify-make/commits/devel
+# https://github.com/robxu9/spotify-make/commit/a0048ec7c5c6acf4ca584348684150b91328227d
 %global commit      a0048ec7c5c6acf4ca584348684150b91328227d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
