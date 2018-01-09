@@ -11,7 +11,7 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.0.69.336
+Version:        1.0.70.399
 Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Tue Jan 09 2018 Sérgio Basto <sergio@serjux.com> - 1.0.70.399-1
+- Update to 1.0.70.399.g5ffabd56
+
 * Mon Jan 01 2018 Sérgio Basto <sergio@serjux.com> - 1.0.69.336-1
 - Update to 1.0.69.336.g7edcc575
 
