@@ -60,9 +60,9 @@ if spec != spec3:
 
     print('rfpkg ci -c && git show')
     print('rfpkg push && rfpkg build --nowait')
+    print('git checkout f28 && git merge master && git push && rfpkg build --nowait; git checkout master')
     print('git checkout f27 && git merge master && git push && rfpkg build --nowait; git checkout master')
     print('git checkout f26 && git merge master && git push && rfpkg build --nowait; git checkout master')
-    print('git checkout f25 && git merge master && git push && rfpkg build --nowait; git checkout master')
 
 else:
     print("Already updated !")
