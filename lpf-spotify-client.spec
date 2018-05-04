@@ -11,8 +11,8 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.0.77.338
-Release:        2%{?dist}
+Version:        1.0.79.223
+Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Fri May 04 2018 Sérgio Basto <sergio@serjux.com> - 1.0.79.223-1
+- Update to 1.0.79.223.g92622cc2
+
 * Thu Apr 12 2018 Sérgio Basto <sergio@serjux.com> - 1.0.77.338-2
 - Requires exclude libcurl-gnutls.so.4 and centos-redhat-libcurl-gnutls-workaround
 
