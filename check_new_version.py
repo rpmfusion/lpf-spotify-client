@@ -44,8 +44,8 @@ spec = open('spotify-client.spec.in').read()
 #spec2 = re.sub(str_mx3, r'\1 %s' % version64, spec)
 str_mx4 = re.compile('(Source1:.*?)[.].*')
 spec3 = re.sub(str_mx4, r'\1%s' % minor64, spec)
-str_mx5 = re.compile('(Source2:.*?)[.].*')
-spec4 = re.sub(str_mx5, r'\1%s' % minor32, spec3)
+str_mx5 = re.compile('(Source2:.*?/).*')
+spec4 = re.sub(str_mx5, r'\1%s' % deb32, spec3)
 
 if spec != spec3:
     open('spotify-client.spec.in', 'w').write(spec4)
