@@ -29,14 +29,11 @@ res = str_mx.findall(html.text)
 res2 = str_mx2.findall(html.text)
 deb32 = res[-1]
 deb64 = res2[-1]
-print ("deb32 = %s" % deb32)
-print ("deb64 = %s" % deb64)
-res2 = str_mx.findall(html.text)
-
 regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,3})([.].*)')
 (version32, minor32) = regexp.findall(deb32)[0]
 (version64, minor64) = regexp.findall(deb64)[0]
-print ("versions:", version32, minor32, version64, minor64)
+print ("deb64 = %s\nVersions: %s %s" % (deb64, version64, minor64))
+print ("deb32 = %s\nVersions: %s %s" % (deb32, version32, minor32))
 
 spec = open('spotify-client.spec.in').read()
 #print (spec)
@@ -61,7 +58,7 @@ if spec != spec3:
         print('error running runme')
 
     print('rfpkg ci -c && git show')
-    print('rfpkg srpm && mock -r fedora-27-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc30.src.rpm'
+    print('rfpkg srpm && mock -r fedora-28-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc30.src.rpm'
         % version64)
 else:
     print("Already updated !")
@@ -69,4 +66,4 @@ else:
 print('git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
 print('git checkout f29 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f28 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f27 && git merge master && git push && rfpkg build --nowait; git checkout master')
+#print('git checkout f27 && git merge master && git push && rfpkg build --nowait; git checkout master')
