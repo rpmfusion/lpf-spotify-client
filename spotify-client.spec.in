@@ -95,19 +95,6 @@ cd %{buildroot}%{_libdir}/spotify-client
 ln -s ../libcurl.so.4 libcurl-gnutls.so.4
 
 
-%post
-/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun
-if [ $1 -eq 0 ] ; then
-    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-
-
 %files
 #doc opt/spotify/spotify-client/licenses.xhtml
 #doc opt/spotify/spotify-client/readme.fedora
