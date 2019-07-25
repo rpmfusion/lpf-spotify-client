@@ -66,4 +66,3 @@ else:
 print('git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
 print('git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f29 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f28 && git merge master && git push && rfpkg build --nowait; git checkout master')
