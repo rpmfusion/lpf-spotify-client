@@ -1,10 +1,10 @@
 # %%bal will not work here, lazy evaluation needed.
 
 #devel branch
-%global github_repo https://github.com/leamas/spotify-make/archive/%{commit}
-%global github_repo https://github.com/robxu9/spotify-make/archive/%{commit}
-%global commit      8597389ba7bf755418e8746b9c20af51e4be2bc0
-%global commit      a0048ec7c5c6acf4ca584348684150b91328227d
+#global github_repo https://github.com/leamas/spotify-make/archive/%{commit}
+%global github_repo https://github.com/sergiomb2/spotify-make/archive/%{commit}
+# devel branch
+%global commit      62e266b593e4031a9a9209fbd17f287cc4cfb7a5
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.1.10.546
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Sep 28 2019 Sérgio Basto <sergio@serjux.com> - 1.1.10.546-2
+- Update spotify-make rfbz#5395
+
 * Thu Jul 25 2019 Leigh Scott <leigh123linux@gmail.com> - 1.1.10.546-1
 - Update to 1.1.10.546.ge08ef575
 
