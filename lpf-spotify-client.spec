@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.1.10.546
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -79,6 +79,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Fri Oct 18 2019 Sérgio Basto <sergio@serjux.com> - 1.1.10.546-3
+- Fix commit of spotify-make in spotify-client.spec.in
+
 * Sat Sep 28 2019 Sérgio Basto <sergio@serjux.com> - 1.1.10.546-2
 - Update spotify-make rfbz#5395
 

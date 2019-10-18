@@ -1,7 +1,7 @@
 #These refer to the installer, not the main package:
 # Using https://github.com/robxu9/spotify-make/commits/devel
 # https://github.com/robxu9/spotify-make/commit/a0048ec7c5c6acf4ca584348684150b91328227d
-%global commit      a0048ec7c5c6acf4ca584348684150b91328227d
+%global commit      62e266b593e4031a9a9209fbd17f287cc4cfb7a5
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %global repo        http://repository.spotify.com/pool/non-free/s/spotify-client
@@ -14,7 +14,7 @@
 
 Name:           spotify-client
 Version:        1.1.10.546
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -109,6 +109,9 @@ ln -s ../libcurl.so.4 libcurl-gnutls.so.4
 
 
 %changelog
+* Fri Oct 18 2019 Sérgio Basto <sergio@serjux.com> - 1.1.10.546-3
+- Fix commit of spotify-make in spotify-client.spec.in
+
 * Thu Jul 25 2019 Leigh Scott <leigh123linux@gmail.com> - 1.1.10.546-1
 - Update to 1.1.10.546.ge08ef575
 
