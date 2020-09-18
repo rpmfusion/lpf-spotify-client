@@ -57,9 +57,9 @@ if spec != spec3:
     if runme(pkgcmd, enviro):
         print('error running runme')
 
-    print('rfpkg ci -c && git show')
-    print('rfpkg srpm && mock -r fedora-31-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc33.src.rpm'
+    print('rfpkg srpm && mock -r fedora-31-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc34.src.rpm'
         % version64)
+    print('rfpkg ci -c && git show')
 else:
     print("Already updated !")
 
