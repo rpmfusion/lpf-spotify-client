@@ -57,13 +57,12 @@ if spec != spec3:
     if runme(pkgcmd, enviro):
         print('error running runme')
 
-    print('rfpkg srpm && mock -r fedora-31-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc34.src.rpm'
+    print('rfpkg srpm && mock -r fedora-32-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc35.src.rpm'
         % version64)
-    print('rfpkg ci -c && git show')
 else:
     print("Already updated !")
 
-print('git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('git checkout f34 && git merge master && git push && rfpkg build --nowait; git checkout master')
+print('git checkout f33 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f32 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f31 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master')
