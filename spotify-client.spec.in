@@ -13,7 +13,7 @@
 
 
 Name:           spotify-client
-Version:        1.1.67.586
+Version:        1.1.68.632
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
@@ -27,7 +27,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.gbb5ef64e_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.g2b11de83_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -49,6 +49,7 @@ Requires:       libnssutil3.so%{?req_64}
 Requires:       libnss3.so%{?req_64}
 Requires:       python2
 Requires:       zenity
+Requires:       glibc-langpack-en
 
 Provides:       spotify = %{version}-%{release}
 # https://lists.rpmfusion.org/pipermail/rpmfusion-developers/2012-November/013934.html
@@ -109,6 +110,9 @@ ln -s ../libcurl.so.4 libcurl-gnutls.so.4
 
 
 %changelog
+* Sun Sep 26 2021 Sérgio Basto <sergio@serjux.com> - 1.1.68.632-1
+- Update to 1.1.68.632.g2b11de83
+
 * Thu Sep 02 2021 Sérgio Basto <sergio@serjux.com> - 1.1.67.586-1
 - Update to 1.1.67.586.gbb5ef64e
 
