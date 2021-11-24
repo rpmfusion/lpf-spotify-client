@@ -71,7 +71,7 @@ if spec != spec3:
         print('error running runme')
 
     print("New version available!")
-    print('rfpkg srpm && mock -r fedora-33-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc36.src.rpm'
+    print('rfpkg srpm && mock -r fedora-34-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc36.src.rpm'
         % version64)
 else:
     print("Already updated !")
@@ -79,4 +79,4 @@ else:
 print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
 print('git checkout f35 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f34 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f33 && git merge master && git push && rfpkg build --nowait; git checkout master')
+print('git checkout epel8 && git merge master && git push && rfpkg build --nowait; git checkout master')
