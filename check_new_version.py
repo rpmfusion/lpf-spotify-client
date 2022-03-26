@@ -77,6 +77,7 @@ else:
     print("Already updated !")
 
 print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('git checkout f36 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f35 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f34 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout epel8 && git merge master && git push && rfpkg build --nowait; git checkout master')
+print('git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master')
