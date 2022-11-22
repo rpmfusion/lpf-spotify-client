@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.1.84.716
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -79,6 +79,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Tue May 03 2022 Sérgio Basto <sergio@serjux.com> - 1.1.84.716-2
+- Update to 1.1.84.716.gc5f8b819-2
+- Exclude from provides all internal shared libraries
+
 * Tue May 03 2022 Sérgio Basto <sergio@serjux.com> - 1.1.84.716-1
 - Update to 1.1.84.716.gc5f8b819
 

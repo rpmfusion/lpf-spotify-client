@@ -14,7 +14,7 @@
 
 Name:           spotify-client
 Version:        1.1.84.716
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -27,7 +27,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.gc5f8b819_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.gc5f8b819-2_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -66,7 +66,7 @@ hard drive.
 # Bundled, we should not Provide these. Cannot use %%filter
 # due to BZ 873847. Instead, use builtin filtering:
 # http://rpm.org/wiki/PackagerDocs/DependencyGenerator
-%global __provides_exclude_from  ^%{_libdir}/spotify-client/.*[.]so
+%global __provides_exclude_from  ^%{_libdir}/spotify-client/.*[.]so|%{_datadir}/spotify-client/.*[.]so
 
 # Filter away the deps om bundled libs and those substituted
 # by symlinks and explicit Requires:.

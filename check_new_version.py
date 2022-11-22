@@ -41,11 +41,11 @@ res2 = str_mx2.findall(html.text)
 deb32 = res[-1]
 deb64 = res2[-1]
 regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,3})([.].*)')
-(version32, minor32) = regexp.findall(deb32)[0]
 (version64, minor64) = regexp.findall(deb64)[0]
-#print ("deb64 = %s\n Versions: %s %s" % (deb64, version64, minor64))
-#print ("deb32 = %s\n Versions: %s %s\n" % (deb32, version32, minor32))
+print ("deb64 = %s\nVersions: %s %s" % (deb64, version64, minor64))
 print ("Latest Version: %s" % version64)
+(version32, minor32) = regexp.findall(deb32)[0]
+#print ("deb32 = %s\nVersions: %s %s\n" % (deb32, version32, minor32))
 print ("Latest deb32 Version: %s \n" % version32)
 
 spec = open('spotify-client.spec.in').read()
@@ -71,7 +71,7 @@ if spec != spec3:
         print('error running runme')
 
     print("New version available!")
-    print('rfpkg srpm && mock -r fedora-34-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc36.src.rpm'
+    print('rfpkg mockbuild -N --default-mock-resultdir --root fedora-35-x86_64-rpmfusion_nonfree'
         % version64)
 else:
     print("Already updated !")
