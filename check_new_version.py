@@ -71,8 +71,7 @@ if spec != spec3:
         print('error running runme')
 
     print("New version available!")
-    print('rfpkg mockbuild -N --default-mock-resultdir --root fedora-35-x86_64-rpmfusion_nonfree'
-        % version64)
+    print('rfpkg mockbuild -N --default-mock-resultdir --root fedora-35-x86_64-rpmfusion_nonfree')
 else:
     print("Already updated !")
 
