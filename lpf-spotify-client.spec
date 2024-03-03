@@ -11,6 +11,7 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
+Epoch:          1
 Version:        1.1.26.501
 Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
