@@ -11,7 +11,7 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.2.26.1187
+Version:        1.1.26.501
 Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
@@ -79,52 +79,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
-* Mon Dec 18 2023 Sérgio Basto <sergio@serjux.com> - 1.2.26.1187-1
-- Update to 1.2.26.1187.g36b715a1
-
-* Mon Oct 30 2023 Sérgio Basto <sergio@serjux.com> - 1.2.22.982-1
-- Update to 1.2.22.982.g794acc0a
-
-* Thu Aug 31 2023 Sérgio Basto <sergio@serjux.com> - 1.2.18.999-1
-- Update to 1.2.18.999.g9b38fc27
-
-* Tue Jun 20 2023 Sérgio Basto <sergio@serjux.com> - 1.2.13.661-1
-- Update to 1.2.13.661.ga588f749
-
-* Mon May 29 2023 Sérgio Basto <sergio@serjux.com> - 1.2.9.743-1
-- Update to 1.2.9.743.g85d9593d
-
-* Mon Apr 03 2023 Sérgio Basto <sergio@serjux.com> - 1.2.8.923-1
-- Update to 1.2.8.923.g4f94bf0d
-
-* Tue May 03 2022 Sérgio Basto <sergio@serjux.com> - 1.1.84.716-2
-- Update to 1.1.84.716.gc5f8b819-2
-- Exclude from provides all internal shared libraries
-
-* Tue May 03 2022 Sérgio Basto <sergio@serjux.com> - 1.1.84.716-1
-- Update to 1.1.84.716.gc5f8b819
-
-* Sat Mar 26 2022 Sérgio Basto <sergio@serjux.com> - 1.1.80.699-1
-- Update to 1.1.80.699.gc3dac750
-
-* Wed Nov 24 2021 Sérgio Basto <sergio@serjux.com> - 1.1.72.439-1
-- Update to 1.1.72.439.gc253025e
-
-* Sun Sep 26 2021 Sérgio Basto <sergio@serjux.com> - 1.1.68.632-1
-- Update to 1.1.68.632.g2b11de83
-
-* Thu Sep 02 2021 Sérgio Basto <sergio@serjux.com> - 1.1.67.586-1
-- Update to 1.1.67.586.gbb5ef64e
-
-* Thu Apr 29 2021 Leigh Scott <leigh123linux@gmail.com> - 1.1.56.595-1
-- Update to 1.1.56.595.g2d2da0de
-
-* Tue Mar 23 2021 Sérgio Basto <sergio@serjux.com> - 1.1.55.498-1
-- Update to 1.1.55.498.gf9a83c60
-
-* Fri Sep 18 2020 Sérgio Basto <sergio@serjux.com> - 1.1.42.622-1
-- Update to 1.1.42.622.gbd112320
-
 * Mon Apr 27 2020 Sérgio Basto <sergio@serjux.com> - 1.1.26.501-1
 - Update to 1.1.26.501.gbe11e53b
 

@@ -1,7 +1,7 @@
 lpf-spotify-client README
 =========================
 
-This is an lpf package. Its only use is to install another package,
+This is a lpf package. It's only use is to install another package,
 called the target package. For lpf-spotify-client, the target package is
 spotify-client.
 

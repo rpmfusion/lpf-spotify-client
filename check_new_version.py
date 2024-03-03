@@ -14,23 +14,11 @@ def runme(cmd, env, cwd='.'):
        being operated on, env is the environment dict, and cwd is where
        the script should be executed from."""
     try:
-        subprocess.check_call(cmd, env=env, cwd=cwd, stderr=subprocess.PIPE)
+        subprocess.check_call(cmd, env=env, cwd=cwd) #, stderr=None
     except subprocess.CalledProcessError as e:
         sys.stderr.write('%s failed: %s\n' % (cmd, e))
         return 1
     return 0
-
-text = "cat spotify-client.spec.in | grep ^Version"
-texts = text.split('|')
-text0 = texts[0].strip().split(' ')
-#print(text0)
-text1 = texts[1].strip().split(' ')
-#print(text1)
-
-ps1 = subprocess.run(text0, check=True, capture_output=True)
-#print("Current %s" % ps1.stdout.decode())
-ps2 = subprocess.run(text1, input=ps1.stdout, capture_output=True)
-print("Current %s" % ps2.stdout.decode().replace(" ", "").replace(":", ": "))
 
 html = requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
 #print (html.text)
@@ -41,12 +29,11 @@ res = str_mx.findall(html.text)
 res2 = str_mx2.findall(html.text)
 deb32 = res[-1]
 deb64 = res2[-1]
-regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,4})([.].*)')
-(version64, minor64) = regexp.findall(deb64)[0]
-#print ("deb64 = %s\nVersions: %s %s" % (deb64, version64, minor64))
+regexp = re.compile('spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,3})([.].*)')
 (version32, minor32) = regexp.findall(deb32)[0]
-#print ("Versions: %s %s %s\n" % (deb32, version32, minor32))
-print ("Latest Versions: %s and i686 version %s \n" % (version64, version32))
+(version64, minor64) = regexp.findall(deb64)[0]
+print ("deb64 = %s\nVersions: %s %s" % (deb64, version64, minor64))
+print ("deb32 = %s\nVersions: %s %s" % (deb32, version32, minor32))
 
 spec = open('spotify-client.spec.in').read()
 #print (spec)
@@ -70,14 +57,13 @@ if spec != spec3:
     if runme(pkgcmd, enviro):
         print('error running runme')
 
-    print("New version available! ACTION REQUIRED !!!\n\n")
-    print('rfpkg mockbuild -N --default-mock-resultdir --root fedora-38-x86_64-rpmfusion_nonfree')
+    print('rfpkg ci -c && git show')
+    print('rfpkg srpm && mock -r fedora-31-x86_64-rpmfusion_nonfree --no-clean --rebuild lpf-spotify-client-%s-1.fc33.src.rpm'
+        % version64)
 else:
-    print("Already updated ! no Action required\n\n")
+    print("Already updated !")
 
-print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
-print('git checkout f39 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f38 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f37 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout el8 && git merge master && git push && rfpkg build --nowait; git checkout master')
+print('git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('git checkout f32 && git merge master && git push && rfpkg build --nowait; git checkout master')
+print('git checkout f31 && git merge master && git push && rfpkg build --nowait; git checkout master')
+print('git checkout f30 && git merge master && git push && rfpkg build --nowait; git checkout master')
