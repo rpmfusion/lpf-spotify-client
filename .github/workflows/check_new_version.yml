@@ -1,0 +1,45 @@
+on:
+  schedule:
+    - cron: "30 8 * * */6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check_new_version:
+    runs-on: ubuntu-latest
+    container: fedora:40
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo dnf install -y rpmdevtools
+      - name: Check new version
+        run: python3 check_new_version.py
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spec
+          path: |
+            lpf-spotify-client.spec
+            spotify-client.spec.in
+  create-pr:
+    needs: check_new_version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: spec
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Update to latest version"
+          title: "Update to latest version"
+          branch: "check_new_version"
+          reviewers: "sergiomb2"
+          base: "master"
+          draft: false
