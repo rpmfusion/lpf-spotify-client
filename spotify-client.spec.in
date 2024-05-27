@@ -13,7 +13,7 @@
 
 
 Name:           spotify-client
-Version:        1.2.31.1205
+Version:        1.2.37.701
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
@@ -27,7 +27,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.g4d59ad7c_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.ge66eb7bc_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -36,24 +36,14 @@ Source2:        %{repo}/spotify-client_1.0.72.117.g6bd7cc73-35_i386.deb
 %endif
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  python2-devel
+BuildRequires:  python3
 BuildRequires:  redhat-lsb-core
 
 Requires:       dbus-x11
 Requires:       hicolor-icon-theme
-                # Symlinked, not picked up by autorequire (all 5).
-Requires:       libnspr4.so%{?req_64}
-Requires:       libplc4.so%{?req_64}
-Requires:       libsmime3.so%{?req_64}
-Requires:       libnssutil3.so%{?req_64}
-Requires:       libnss3.so%{?req_64}
-Requires:       python2
-Requires:       zenity
 Requires:       glibc-langpack-en
 
 Provides:       spotify = %{version}-%{release}
-# https://lists.rpmfusion.org/pipermail/rpmfusion-developers/2012-November/013934.html
-Provides:       bundled(libssl) = 0.9.8
 
 %description
 Think of Spotify as your new music collection. Your library. Only this time
@@ -91,14 +81,9 @@ hard drive.
 
 %install
 %make_install
-# the hack https://forums.kleientertainment.com/topic/50011-centos-redhat-libcurl-gnutls-workaround/
-cd %{buildroot}%{_libdir}/spotify-client
-ln -s ../libcurl.so.4 libcurl-gnutls.so.4
 
 
 %files
-#doc opt/spotify/spotify-client/licenses.xhtml
-#doc opt/spotify/spotify-client/readme.fedora
 %doc usr/share/doc/spotify-client/changelog.gz
 %{_libdir}/spotify-client
 %{_bindir}/spotify
@@ -110,6 +95,11 @@ ln -s ../libcurl.so.4 libcurl-gnutls.so.4
 
 
 %changelog
+* Mon May 27 2024 Sérgio Basto <sergio@serjux.com> - 1.2.37.701-1
+- Update to 1.2.37.701.ge66eb7bc
+- Fixes on spotify-client.spec.in drop require of python2,
+  many more fixes needed
+
 * Mon Feb 26 2024 Sérgio Basto <sergio@serjux.com> - 1.2.31.1205-1
 - Update to 1.2.31.1205.g4d59ad7c
 
