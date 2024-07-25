@@ -4,7 +4,7 @@
 #global github_repo https://github.com/leamas/spotify-make/archive/%{commit}
 %global github_repo https://github.com/sergiomb2/spotify-make/archive/%{commit}
 # devel branch
-%global commit      62e266b593e4031a9a9209fbd17f287cc4cfb7a5
+%global commit      854e3fb754d4926cb51abce1cb6983a5969d28e9
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
@@ -12,12 +12,11 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.2.42.290
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
 URL:            https://github.com/leamas/spotify-make
-Group:          Development/Tools
 ExclusiveArch:  i686 x86_64
 #BuildArch:      noarch
 %global debug_package %{nil}
@@ -31,8 +30,8 @@ Source3:        README
 Source4:        %{github_repo}/spotify-make-%{shortcommit}.tar.gz
 
 BuildRequires:  desktop-file-utils
-BuildRequires:  lpf >= 0.1
-Requires:       lpf >= 0.1
+BuildRequires:  lpf >= 0.3
+Requires:       lpf >= 0.3
 
 %description
 Bootstrap package allowing the lpf system to build the non-redistributable
@@ -79,6 +78,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Wed Jul 24 2024 Sérgio Basto <sergio@serjux.com> - 1.2.42.290-2
+- Update spotify-make to 854e3fb
+
 * Tue Jul 23 2024 Sérgio Basto <sergio@serjux.com> - 1.2.42.290-1
 - Update to 1.2.42.290.g242057a2
 

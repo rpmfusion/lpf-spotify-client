@@ -1,7 +1,5 @@
 #These refer to the installer, not the main package:
-# Using https://github.com/robxu9/spotify-make/commits/devel
-# https://github.com/robxu9/spotify-make/commit/a0048ec7c5c6acf4ca584348684150b91328227d
-%global commit      62e266b593e4031a9a9209fbd17f287cc4cfb7a5
+%global commit      854e3fb754d4926cb51abce1cb6983a5969d28e9
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %global repo        http://repository.spotify.com/pool/non-free/s/spotify-client
@@ -14,14 +12,13 @@
 
 Name:           spotify-client
 Version:        1.2.42.290
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
 # $board/What-license-does-the-linux-spotify-client-use/td-p/173356
 License:        No modification permitted, non-redistributable
 URL:            https://www.spotify.com/se/download/linux/
-Group:          Applications/Multimedia
 ExclusiveArch:  %{ix86} x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
@@ -95,6 +92,9 @@ hard drive.
 
 
 %changelog
+* Wed Jul 24 2024 Sérgio Basto <sergio@serjux.com> - 1.2.42.290-2
+- Update spotify-make to 854e3fb
+
 * Tue Jul 23 2024 Sérgio Basto <sergio@serjux.com> - 1.2.42.290-1
 - Update to 1.2.42.290.g242057a2
 
