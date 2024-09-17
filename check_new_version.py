@@ -20,6 +20,10 @@ def runme(cmd, env, cwd='.'):
         return 1
     return 0
 
+# do not forget do git pull before start
+result = subprocess.run("git checkout master; git pull", shell=True, capture_output=True, text=True)
+print(result.stdout)
+
 text = "cat spotify-client.spec.in | grep ^Version"
 texts = text.split('|')
 text0 = texts[0].strip().split(' ')
@@ -76,6 +80,7 @@ else:
     print("Already updated ! no Action required\n\n")
 
 print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('git checkout f41 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f40 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f39 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master')
