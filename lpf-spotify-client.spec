@@ -11,7 +11,7 @@
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.2.45.454
+Version:        1.2.47.364
 Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
@@ -31,6 +31,10 @@ Source4:        %{github_repo}/spotify-make-%{shortcommit}.tar.gz
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  lpf >= 0.3
+
+Requires:       desktop-file-utils
+Requires:       python3
+Requires:       /usr/bin/lsb_release
 Requires:       lpf >= 0.3
 
 %description
@@ -78,6 +82,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sun Sep 29 2024 Sérgio Basto <sergio@serjux.com> - 1.2.47.364-1
+- Update to 1.2.47.364.gf06e5cee
+
 * Tue Sep 17 2024 Sérgio Basto <sergio@serjux.com> - 1.2.45.454-1
 - Update to 1.2.45.454.gc16ec9f6
 

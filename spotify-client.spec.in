@@ -11,7 +11,7 @@
 
 
 Name:           spotify-client
-Version:        1.2.45.454
+Version:        1.2.47.364
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
@@ -24,7 +24,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.gc16ec9f6_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.gf06e5cee_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -34,7 +34,7 @@ Source2:        %{repo}/spotify-client_1.0.72.117.g6bd7cc73-35_i386.deb
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  python3
-BuildRequires:  redhat-lsb-core
+BuildRequires:  /usr/bin/lsb_release
 
 Requires:       dbus-x11
 Requires:       hicolor-icon-theme
@@ -92,6 +92,9 @@ hard drive.
 
 
 %changelog
+* Sun Sep 29 2024 Sérgio Basto <sergio@serjux.com> - 1.2.47.364-1
+- Update to 1.2.47.364.gf06e5cee
+
 * Tue Sep 17 2024 Sérgio Basto <sergio@serjux.com> - 1.2.45.454-1
 - Update to 1.2.45.454.gc16ec9f6
 
