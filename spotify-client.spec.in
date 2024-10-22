@@ -1,5 +1,5 @@
 #These refer to the installer, not the main package:
-%global commit      6f525165fb4de01303566c2e5739de3bcd5a3f55
+%global commit      90c98824cd3fdd16fb211cb911f27dfa462b41a2
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %global repo        http://repository.spotify.com/pool/non-free/s/spotify-client
@@ -11,8 +11,8 @@
 
 
 Name:           spotify-client
-Version:        1.2.47.364
-Release:        2%{?dist}
+Version:        1.2.48.405
+Release:        1%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -24,7 +24,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.gf06e5cee_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.gf2c48e6f_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -90,6 +90,9 @@ hard drive.
 
 
 %changelog
+* Tue Oct 22 2024 Sérgio Basto <sergio@serjux.com> - 1.2.48.405-1
+- Update to 1.2.48.405.gf2c48e6f
+
 * Sun Sep 29 2024 Sérgio Basto <sergio@serjux.com> - 1.2.47.364-2
 - Various fixes on spotify-make to allow install new debians files from spotify
 

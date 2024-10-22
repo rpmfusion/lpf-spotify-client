@@ -4,15 +4,15 @@
 #global github_repo https://github.com/leamas/spotify-make/archive/%{commit}
 %global github_repo https://github.com/sergiomb2/spotify-make/archive/%{commit}
 # devel branch
-%global commit      6f525165fb4de01303566c2e5739de3bcd5a3f55
+%global commit      90c98824cd3fdd16fb211cb911f27dfa462b41a2
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
 
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
-Version:        1.2.47.364
-Release:        2%{?dist}
+Version:        1.2.48.405
+Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -82,6 +82,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Tue Oct 22 2024 Sérgio Basto <sergio@serjux.com> - 1.2.48.405-1
+- Update to 1.2.48.405.gf2c48e6f
+
 * Sun Sep 29 2024 Sérgio Basto <sergio@serjux.com> - 1.2.47.364-2
 - Various fixes on spotify-make to allow install new debians files from spotify
 
