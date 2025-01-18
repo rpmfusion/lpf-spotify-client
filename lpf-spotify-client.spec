@@ -4,7 +4,7 @@
 #global github_repo https://github.com/leamas/spotify-make/archive/%{commit}
 %global github_repo https://github.com/sergiomb2/spotify-make/archive/%{commit}
 # devel branch
-%global commit      90c98824cd3fdd16fb211cb911f27dfa462b41a2
+%global commit      29df615b140fc4a671ac729a7ad8633bf7233da8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %define         target_pkg %(t=%{name}; echo ${t#lpf-})
@@ -12,7 +12,7 @@
 Name:           lpf-spotify-client
                 # Upstream spotify version, verbatim.
 Version:        1.2.53.440
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
@@ -82,6 +82,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Sat Jan 18 2025 Sérgio Basto <sergio@serjux.com> - 1.2.53.440-2
+- Update spotify-make
+
 * Sat Jan 18 2025 Sérgio Basto <sergio@serjux.com> - 1.2.53.440-1
 - Update to 1.2.53.440.g7b2f582a
 
