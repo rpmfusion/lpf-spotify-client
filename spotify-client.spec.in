@@ -1,5 +1,5 @@
 #These refer to the installer, not the main package:
-%global commit      90c98824cd3fdd16fb211cb911f27dfa462b41a2
+%global commit      29df615b140fc4a671ac729a7ad8633bf7233da8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 %global repo        http://repository.spotify.com/pool/non-free/s/spotify-client
