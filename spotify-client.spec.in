@@ -11,8 +11,8 @@
 
 
 Name:           spotify-client
-Version:        1.2.53.440
-Release:        2%{?dist}
+Version:        1.2.56.502
+Release:        1%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -24,7 +24,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.g7b2f582a_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.ga68d2d4f_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -90,6 +90,9 @@ hard drive.
 
 
 %changelog
+* Tue Feb 11 2025 Sérgio Basto <sergio@serjux.com> - 1.2.56.502-1
+- Update to 1.2.56.502.ga68d2d4f
+
 * Sat Jan 18 2025 Sérgio Basto <sergio@serjux.com> - 1.2.53.440-2
 - Update spotify-make
 
