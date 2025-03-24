@@ -24,44 +24,37 @@ def runme(cmd, env, cwd='.'):
 result = subprocess.run("git checkout master; git pull", shell=True, capture_output=True, text=True)
 print(result.stdout)
 
-text = "cat spotify-client.spec.in | grep ^Version"
-texts = text.split('|')
-text0 = texts[0].strip().split(' ')
-#print(text0)
-text1 = texts[1].strip().split(' ')
-#print(text1)
-
-ps1 = subprocess.run(text0, check=True, capture_output=True)
-#print("Current %s" % ps1.stdout.decode())
-ps2 = subprocess.run(text1, input=ps1.stdout, capture_output=True)
-print("Current %s" % ps2.stdout.decode().replace(" ", "").replace(":", ": "))
+spec = open('spotify-client.spec.in').read()
+#print (spec)
+match = re.search(r'^Version:\s*(\S+)', spec, re.MULTILINE)
+current_version = match.group(1)
+match = re.search(r'^Source2:.*spotify-client_(\S+)[.]g', spec, re.MULTILINE)
+current_version2 = match.group(1)
+print("Current Version: %s and i686 version %s " % (current_version, current_version2))
 
 html = requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
 #print (html.text)
 
-str_mx = re.compile('href="(spotify-client.*?i386.deb)"')
-str_mx2 = re.compile('href="(spotify-client.*?amd64.deb)"')
-res = str_mx.findall(html.text)
-res2 = str_mx2.findall(html.text)
-deb32 = res[-1]
-deb64 = res2[-1]
 regexp = re.compile(r'spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,4})([.].*)')
-(version64, minor64) = regexp.findall(deb64)[0]
-#print ("deb64 = %s\nVersions: %s %s" % (deb64, version64, minor64))
+
+str_mx = re.compile('href="(spotify-client.*?i386.deb)"')
+res = str_mx.findall(html.text)
+deb32 = res[-1]
 (version32, minor32) = regexp.findall(deb32)[0]
-#print ("Versions: %s %s %s\n" % (deb32, version32, minor32))
+#print ("Version i386: %s %s %s\n" % (deb32, version32, minor32))
+
+str_mx2 = re.compile('href="(spotify-client.*?amd64.deb)"')
+res2 = str_mx2.findall(html.text)
+deb64 = res2[-1]
+(version64, minor64) = regexp.findall(deb64)[0]
+#print ("Version amd64: %s %s %s" % (deb64, version64, minor64))
 print ("Latest Versions: %s and i686 version %s \n" % (version64, version32))
 
-spec = open('spotify-client.spec.in').read()
-#print (spec)
-#str_mx3 = re.compile('(Version:\s*) .*')
-#spec2 = re.sub(str_mx3, r'\1 %s' % version64, spec)
-str_mx4 = re.compile('(Source1:.*?)[.].*')
-spec3 = re.sub(str_mx4, r'\1%s' % minor64, spec)
-str_mx5 = re.compile('(Source2:.*?/).*')
-spec4 = re.sub(str_mx5, r'\1%s' % deb32, spec3)
-
-if spec != spec3:
+if current_version != version64 or current_version2 != version32:
+    str_mx4 = re.compile('(Source1:.*?)[.].*')
+    spec3 = re.sub(str_mx4, r'\1%s' % minor64, spec)
+    str_mx5 = re.compile('(Source2:.*?/).*')
+    spec4 = re.sub(str_mx5, r'\1%s' % deb32, spec3)
     open('spotify-client.spec.in', 'w').write(spec4)
     enviro = os.environ
     pkgcmd = ['rpmdev-bumpspec', '-n', version64, '-c', 'Update to %s%s' % (version64, minor64[:10]),
