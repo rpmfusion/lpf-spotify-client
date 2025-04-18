@@ -12,7 +12,7 @@
 
 Name:           spotify-client
 Version:        1.2.60.564
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Spotify music player native client
 
 # board=http://community.spotify.com/t5/Desktop-Linux
@@ -35,6 +35,7 @@ Source2:        %{repo}/spotify-client_1.0.72.117.g6bd7cc73-35_i386.deb
 BuildRequires:  desktop-file-utils
 BuildRequires:  python3
 BuildRequires:  /usr/bin/lsb_release
+BuildRequires:  make
 
 Requires:       dbus-x11
 Requires:       hicolor-icon-theme
@@ -90,6 +91,9 @@ hard drive.
 
 
 %changelog
+* Fri Apr 18 2025 Sérgio Basto <sergio@serjux.com> - 1.2.60.564-2
+- (rfbz#7212) Add make to BuildRequires
+
 * Thu Apr 17 2025 Sérgio Basto <sergio@serjux.com> - 1.2.60.564-1
 - Update to 1.2.60.564.gcc6305cb
 
