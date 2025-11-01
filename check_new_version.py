@@ -5,6 +5,7 @@
 import requests
 import re
 import os
+import sys
 import subprocess
 
 def runme(cmd, env, cwd='.'):
@@ -32,9 +33,19 @@ match = re.search(r'^Source2:.*spotify-client_(\S+)[.]g', spec, re.MULTILINE)
 current_version2 = match.group(1)
 print("Current Version: %s and i686 version %s " % (current_version, current_version2))
 
-html = requests.get('http://repository.spotify.com/pool/non-free/s/spotify-client/')
-#print (html.text)
-
+headers = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Connection": "keep-alive",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "cross-site",
+}
+url = "https://repository.spotify.com/pool/non-free/s/spotify-client/"
+html = requests.get(url , headers=headers)
+print(html.headers)
 regexp = re.compile(r'spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,4})([.].*)')
 
 str_mx = re.compile('href="(spotify-client.*?i386.deb)"')
@@ -45,6 +56,8 @@ deb32 = res[-1]
 
 str_mx2 = re.compile('href="(spotify-client.*?amd64.deb)"')
 res2 = str_mx2.findall(html.text)
+print (res2)
+#print (res2[-1])
 deb64 = res2[-1]
 (version64, minor64) = regexp.findall(deb64)[0]
 #print ("Version amd64: %s %s %s" % (deb64, version64, minor64))
