@@ -31,7 +31,6 @@ match = re.search(r'^Version:\s*(\S+)', spec, re.MULTILINE)
 current_version = match.group(1)
 match = re.search(r'^Source2:.*spotify-client_(\S+)[.]g', spec, re.MULTILINE)
 current_version2 = match.group(1)
-print("Current Version: %s and i686 version %s " % (current_version, current_version2))
 
 headers = {
     "User-Agent": "Mozilla/5.0",
@@ -45,7 +44,7 @@ headers = {
 }
 url = "https://repository.spotify.com/pool/non-free/s/spotify-client/"
 html = requests.get(url , headers=headers)
-print(html.headers)
+print(html.headers, "\n")
 regexp = re.compile(r'spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,4})([.].*)')
 
 str_mx = re.compile('href="(spotify-client.*?i386.deb)"')
@@ -61,7 +60,8 @@ print (res2)
 deb64 = res2[-1]
 (version64, minor64) = regexp.findall(deb64)[0]
 #print ("Version amd64: %s %s %s" % (deb64, version64, minor64))
-print ("Latest Versions: %s and i686 version %s \n" % (version64, version32))
+print("Current versions: %s and i686 version %s " % (current_version, current_version2))
+print("Latest versions : %s and i686 version %s \n" % (version64, version32))
 
 if current_version != version64 or current_version2 != version32:
     str_mx4 = re.compile('(Source1:.*?)[.].*')
@@ -84,10 +84,10 @@ if current_version != version64 or current_version2 != version32:
     #print('rfpkg mockbuild -N --default-mock-resultdir --root fedora+rpmfusion_nonfree-41-x86_64')
     print('rfpkg --release f41 mockbuild --default-mock-resultdir -N')
 else:
-    print("Already updated ! no Action required\n\n")
+    print("Already updated !\n\n")
 
 print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f41 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f40 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master')
