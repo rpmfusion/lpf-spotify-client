@@ -42,7 +42,7 @@ headers = {
     "Sec-Fetch-Mode": "navigate",
     "Sec-Fetch-Site": "cross-site",
 }
-url = "https://repository.spotify.com/pool/non-free/s/spotify-client/"
+url = "https://repository-origin.spotify.com/pool/non-free/s/spotify-client/"
 html = requests.get(url , headers=headers)
 print(html.headers, "\n")
 regexp = re.compile(r'spotify-client_(\d{1,2}[.]\d{1,2}[.]\d{1,3}[.]\d{1,4})([.].*)')
@@ -89,5 +89,4 @@ else:
 print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
 print('git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master')
-print('git checkout f41 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master')

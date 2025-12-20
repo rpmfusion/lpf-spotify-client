@@ -2,7 +2,7 @@
 %global commit      29df615b140fc4a671ac729a7ad8633bf7233da8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
-%global repo        http://repository.spotify.com/pool/non-free/s/spotify-client
+%global repo        https://repository-origin.spotify.com/pool/non-free/s/spotify-client
 
 # We cannot strip this binary (licensing restrictions).
 %global debug_package %{nil}
@@ -11,7 +11,7 @@
 
 
 Name:           spotify-client
-Version:        1.2.74.477
+Version:        1.2.79.425
 Release:        1%{?dist}
 Summary:        Spotify music player native client
 
@@ -24,7 +24,7 @@ ExclusiveArch:  %{ix86} x86_64
 Source0:        spotify-make-%{shortcommit}.tar.gz
 
 %ifarch x86_64
-Source1:        %{repo}/spotify-client_%{version}.g3be53afe_amd64.deb
+Source1:        %{repo}/spotify-client_%{version}.g1d0fcf61_amd64.deb
 %global   spotify_pkg   %{SOURCE1}
 %global   req_64        ()(64bit)
 %else
@@ -91,6 +91,9 @@ hard drive.
 
 
 %changelog
+* Sat Dec 20 2025 Sérgio Basto <sergio@serjux.com> - 1.2.79.425-1
+- Update to 1.2.79.425.g1d0fcf61
+
 * Sun Nov 23 2025 Sérgio Basto <sergio@serjux.com> - 1.2.74.477-1
 - Update to 1.2.74.477.g3be53afe
 
