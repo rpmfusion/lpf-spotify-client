@@ -1,0 +1,63 @@
+tried creating an issue but kept getting error
+Updating and loading repositories:
+ Spotify Client                         ???% |   0.0   B/s |   0.0   B |  00m01s
+>>> Status code: 404 for https://repository.spotify.com/stable/fedora/x86_64/rep
+>>> Status code: 404 for https://repository.spotify.com/stable/fedora/x86_64/rep
+>>> Status code: 404 for https://repository.spotify.com/stable/fedora/x86_64/rep
+>>> Status code: 404 for https://repository.spotify.com/stable/fedora/x86_64/rep
+>>> Usable URL not found                                                        
+Repositories loaded.
+Package "lsb_release-3.3-7.fc43.noarch" is already installed.
+Package "desktop-file-utils-0.28-2.fc43.x86_64" is already installed.
+Package "make-1:4.4.1-11.fc43.x86_64" is already installed.
+Package "python3-3.14.0-2.fc43.x86_64" is already installed.
+
+Nothing to do.
+Downloading: http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.74.477.g3be53afe_amd64.deb
+Download failed:
+404 Client Error: Not Found for url: https://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.2.74.477.g3be53afe_amd64.deb
+setting SOURCE_DATE_EPOCH=1763856000
+Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.flZKl5
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.hOhd0m
++ umask 022
++ cd /var/lib/lpf/rpmbuild/BUILD/spotify-client-1.2.74.477-build
++ cd /var/lib/lpf/rpmbuild/BUILD/spotify-client-1.2.74.477-build
++ rm -rf spotify-make-29df615b140fc4a671ac729a7ad8633bf7233da8
++ /usr/lib/rpm/rpmuncompress -x /var/lib/lpf/rpmbuild/SOURCES/spotify-make-29df615.tar.gz
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd spotify-make-29df615b140fc4a671ac729a7ad8633bf7233da8
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.yi8V1P
++ umask 022
++ cd /var/lib/lpf/rpmbuild/BUILD/spotify-client-1.2.74.477-build
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ cd spotify-make-29df615b140fc4a671ac729a7ad8633bf7233da8
++ ./configure --prefix=/usr --libdir=/usr/lib64 --package=/var/lib/lpf/rpmbuild/SOURCES/spotify-client_1.2.74.477.g3be53afe_amd64.deb
+Cannot open package file
+error: Bad exit status from /var/tmp/rpm-tmp.yi8V1P (%build)
+
+RPM build errors:
+    Bad exit status from /var/tmp/rpm-tmp.yi8V1P (%build)
