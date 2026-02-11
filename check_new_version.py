@@ -60,8 +60,10 @@ print (res2)
 deb64 = res2[-1]
 (version64, minor64) = regexp.findall(deb64)[0]
 #print ("Version amd64: %s %s %s" % (deb64, version64, minor64))
-print("Current versions: %s and i686 version %s " % (current_version, current_version2))
-print("Latest versions : %s and i686 version %s \n" % (version64, version32))
+print("Current i686 version: %s " % (current_version2))
+print("Latest  i686 version: %s \n" % (version32))
+print("Current version: %s " % (current_version))
+print("Latest  version: %s \n" % (version64))
 
 if current_version != version64 or current_version2 != version32:
     str_mx4 = re.compile('(Source1:.*?)[.].*')
@@ -81,12 +83,13 @@ if current_version != version64 or current_version2 != version32:
         print('error running runme')
 
     print("New version available! ACTION REQUIRED !!!\n\n")
-    #print('rfpkg mockbuild -N --default-mock-resultdir --root fedora+rpmfusion_nonfree-41-x86_64')
-    print('rfpkg --release f41 mockbuild --default-mock-resultdir -N')
+    #print('rfpkg mockbuild -N --default-mock-resultdir --root fedora+rpmfusion_nonfree-43-x86_64')
+    print('rfpkg --release f43 mockbuild --default-mock-resultdir -N')
 else:
     print("Already updated !\n\n")
 
 print('rfpkg ci -c && git show && echo Press enter to push and build; read dummy; rfpkg push && rfpkg build --nowait')
+print('git checkout f44 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f43 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout f42 && git merge master && git push && rfpkg build --nowait; git checkout master')
 print('git checkout el9 && git merge master && git push && rfpkg build --nowait; git checkout master')
