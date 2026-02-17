@@ -16,7 +16,7 @@ Release:        1%{?dist}
 Summary:        Spotify music player native client package bootstrap
 
 License:        MIT
-URL:            https://github.com/leamas/spotify-make
+URL:            https://github.com/sergiomb2/spotify-make
 ExclusiveArch:  i686 x86_64
 #BuildArch:      noarch
 %global debug_package %{nil}
@@ -44,7 +44,7 @@ spotify-client package.
 
 The package is only available on ix86 and x86_64 hosts.
 
-See:  http://www.spotify.com/se/blog/archives/2010/07/12/linux/
+See: https://www.spotify.com/de-en/download/linux/
 
 
 %prep

@@ -7,7 +7,7 @@ includes:
 Besides these linux specific restrictions, all use of the spotify streaming
 service is governed by [2]
 
-[1] http://community.spotify.com/t5/Help-Desktop-Linux-Mac-and/What-license-does-the-linux-spotify-client-use/m-p/173356/highlight/true#M8303
+[1] https://community.spotify.com/t5/Desktop-Linux/bd-p/desktop_linux
 
-[2] http://www.spotify.com/se/legal/end-user-agreement/
+[2] http://www.spotify.com/us/legal/end-user-agreement/
 

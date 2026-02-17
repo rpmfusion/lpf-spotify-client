@@ -18,7 +18,7 @@ Summary:        Spotify music player native client
 # board=http://community.spotify.com/t5/Desktop-Linux
 # $board/What-license-does-the-linux-spotify-client-use/td-p/173356
 License:        No modification permitted, non-redistributable
-URL:            https://www.spotify.com/se/download/linux/
+URL:            https://www.spotify.com/download/linux/
 ExclusiveArch:  %{ix86} x86_64
 
 Source0:        spotify-make-%{shortcommit}.tar.gz
